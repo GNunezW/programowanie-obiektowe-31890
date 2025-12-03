@@ -32,42 +32,78 @@
  // Example 1
 //Np. Osoby, które mają 14 lat mają dostęp do sklepu, ale nie mogą kupić i
 //zarejestrować karty SIM
- const int requiredAge = 18;
- const int minRequiredAge = 14;
- const string accessDeniedMessage = "Musisz mieć 18 lat!";
- const string accessAllowedMessage = "Witamy w naszym sklepie!";
- const string over14AllowedMessage = "Witamy w naszym sklepie, nie mozesz kupić karty sim!!";
+ // const int requiredAge = 18;
+ // const int minRequiredAge = 14;
+ // const string accessDeniedMessage = "Musisz mieć 18 lat!";
+ // const string accessAllowedMessage = "Witamy w naszym sklepie!";
+ // const string over14AllowedMessage = "Witamy w naszym sklepie, nie mozesz kupić karty sim!!";
+ //
+ //
+ // int age = 18;
+ //
+ // do
+ // {
+ //     Console.Write("Podaj swój wiek: ");
+ //     var userInput = Console.ReadLine();
+ //
+ //    
+ //     var success = int.TryParse(userInput, out age);
+ //
+ //     if (!success)
+ //     {
+ //         Console.WriteLine("Musisz wprowadzić poprawną wartość!");
+ //         continue;
+ //     }
+ //    
+ //
+ //     if (age >= requiredAge)
+ //     {
+ //         Console.WriteLine(accessAllowedMessage);
+ //     }
+ //     else if (age >= minRequiredAge)
+ //     {
+ //         Console.WriteLine(over14AllowedMessage);
+ //     }
+ //     else
+ //     {
+ //         Console.WriteLine(accessDeniedMessage);
+ //     }
+ // } while (age < requiredAge);
+ //
+ // Console.WriteLine("Exit...");
+ //Zadanie 4: Utwórz klasę Osoba z polami Imie, Wiek i metodą PrzedstawSie(). Utwórz kilka
+ // obiektów i wywołaj tę metodę.
 
-
- int age = 18;
-
- do
+ class Osoba
  {
-     Console.Write("Podaj swój wiek: ");
-     var userInput = Console.ReadLine();
+     public string imie;
+     public string nazwisko;
+     public int wiek;
 
-    
-     var success = int.TryParse(userInput, out age);
+     public void przedstawSie()
+     {
+         Console.WriteLine($"Cześć, jestem {imie} {nazwisko} i mam {wiek} lat");
+     }
 
-     if (!success)
-     {
-         Console.WriteLine("Musisz wprowadzić poprawną wartość!");
-         continue;
-     }
-    
-
-     if (age >= requiredAge)
-     {
-         Console.WriteLine(accessAllowedMessage);
-     }
-     else if (age >= minRequiredAge)
-     {
-         Console.WriteLine(over14AllowedMessage);
-     }
-     else
-     {
-         Console.WriteLine(accessDeniedMessage);
-     }
- } while (age < requiredAge);
-
- Console.WriteLine("Exit...");
+ };
+class Program{
+    static void Main()
+    {
+        Osoba osoba = new Osoba();
+        Console.WriteLine("Podaj imie");
+        osoba.imie = Console.ReadLine();
+        Console.WriteLine("Podaj nazwisko");
+        osoba.nazwisko = Console.ReadLine();
+        Console.WriteLine("Podaj wiek");
+        string inputWiek = Console.ReadLine();
+        var success = int.TryParse(inputWiek, out osoba.wiek);
+        if (!success)
+        {
+            Console.WriteLine("Musisz wprowadzić poprawną wartość!");
+        }
+        else
+        {
+            osoba.przedstawSie();
+        }
+    }
+}
