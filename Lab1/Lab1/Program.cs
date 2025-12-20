@@ -1,6 +1,4 @@
-﻿// See https://aka.ms/new-console-template for more information
-
-//Exercise 1 pętle c#
+﻿//Exercise 1 pętle c#
 //
 // string password;
 // do
@@ -73,37 +71,46 @@
  // Console.WriteLine("Exit...");
  //Zadanie 4: Utwórz klasę Osoba z polami Imie, Wiek i metodą PrzedstawSie(). Utwórz kilka
  // obiektów i wywołaj tę metodę.
-
- class Osoba
- {
-     public string imie;
-     public string nazwisko;
-     public int wiek;
-
-     public void przedstawSie()
-     {
-         Console.WriteLine($"Cześć, jestem {imie} {nazwisko} i mam {wiek} lat");
-     }
-
- };
-class Program{
-    static void Main()
-    {
-        Osoba osoba = new Osoba();
-        Console.WriteLine("Podaj imie");
-        osoba.imie = Console.ReadLine();
-        Console.WriteLine("Podaj nazwisko");
-        osoba.nazwisko = Console.ReadLine();
-        Console.WriteLine("Podaj wiek");
-        string inputWiek = Console.ReadLine();
-        var success = int.TryParse(inputWiek, out osoba.wiek);
-        if (!success)
-        {
-            Console.WriteLine("Musisz wprowadzić poprawną wartość!");
-        }
-        else
-        {
-            osoba.przedstawSie();
-        }
-    }
-}
+//
+//  class Osoba
+//  {
+//      public string imie;
+//      public string nazwisko;
+//      public int wiek;
+//
+//      public void przedstawSie()
+//      {
+//          Console.WriteLine($"Cześć, jestem {imie} {nazwisko} i mam {wiek} lat");
+//      }
+//
+//  };
+// class Program{
+//     static void Main()
+//     {
+//         Osoba osoba = new Osoba();
+//         Console.WriteLine("Podaj imie");
+//         osoba.imie = Console.ReadLine();
+//         Console.WriteLine("Podaj nazwisko");
+//         osoba.nazwisko = Console.ReadLine();
+//         Console.WriteLine("Podaj wiek");
+//         string inputWiek = Console.ReadLine();
+//         var success = int.TryParse(inputWiek, out osoba.wiek);
+//         if (!success)
+//         {
+//             Console.WriteLine("Musisz wprowadzić poprawną wartość!");
+//         }
+//         else
+//         {
+//             osoba.przedstawSie();
+//         }
+//     }
+// };
+//Zadanie6.
+// class Animal
+// { 
+//  public void Eat() => Console.WriteLine("Animal is eating");
+// }
+// class Cat : Animal
+// {
+// public void Meow()=> Console.WriteLine("Cat is meowing");
+// }
