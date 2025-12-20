@@ -106,11 +106,21 @@
 //     }
 // };
 //Zadanie6.
-// class Animal
-// { 
-//  public void Eat() => Console.WriteLine("Animal is eating");
-// }
-// class Cat : Animal
-// {
-// public void Meow()=> Console.WriteLine("Cat is meowing");
-// }
+ class Program
+ {
+     class Animal
+     { 
+         public void Eat() => Console.WriteLine("Animal is eating");
+     }
+     class Cat : Animal
+     {
+         public void Meow()=> Console.WriteLine("Cat is meowing");
+     }
+
+     static void Main()
+     {
+         Cat cat = new Cat();
+         cat.Meow();
+         cat.Eat();
+     }
+ }
