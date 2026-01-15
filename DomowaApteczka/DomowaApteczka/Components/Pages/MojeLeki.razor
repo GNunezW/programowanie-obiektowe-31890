@@ -28,7 +28,7 @@ else
             {
                 <tr>
                     <td>@lek.Nazwa</td>
-                    <td>@lek.DataWaznosci</td>
+                    <td>@lek.DataWaznosci.ToShortDateString()</td>
                     <td>@lek.Typ()</td>
                     <td>@if (lek.CzyPrzeterminowany())
                     {
