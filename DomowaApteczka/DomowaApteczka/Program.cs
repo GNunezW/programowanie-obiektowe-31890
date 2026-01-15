@@ -1,12 +1,19 @@
 using DomowaApteczka.Components;
+using DomowaApteczka.Data;
+using DomowaApteczka.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
+builder.Services.AddSingleton<IApteczkaRepository, ApteczkaRepositoryJson>();
 
 var app = builder.Build();
+var repo = app.Services.GetRequiredService<IApteczkaRepository>();
+
+repo.Dodaj(new LekBezRecepty("Paracetamol", DateTime.Now.AddMonths(12)));
+repo.Dodaj(new LekNaRecepte("Amoksycylina", DateTime.Now.AddMonths(-1)));
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

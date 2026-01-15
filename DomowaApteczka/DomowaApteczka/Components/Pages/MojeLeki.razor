@@ -1,0 +1,41 @@
+﻿@page "/leki"
+@attribute [StreamRendering]
+
+@inject DomowaApteczka.Data.IApteczkaRepository Repo
+<PageTitle>Moje Leki</PageTitle>
+
+<h1>Moje Leki</h1>
+
+<p>Zobacz, jakie leki aktualnie znajdują się w Twojej apteczce.</p>
+
+@if (!Repo.PobierzWszystkie().Any())
+{
+    <p>Brak leków w apteczce.</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th aria-label="Nazwa Leku">Nazwa Leku</th>
+                <th aria-label="Data ważnosci">Data ważnosci</th>
+                <th aria-label="Data ważnosci">Recepta</th>
+                <th>Podsumowanie</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var lek in Repo.PobierzWszystkie())
+            {
+                <tr>
+                    <td>@lek.Nazwa</td>
+                    <td>@lek.DataWaznosci</td>
+                    <td>@lek.Typ()</td>
+                    <td>@if (lek.CzyPrzeterminowany())
+                    {
+                        <span style="color:red"> Lek przeterminowany! </span>
+                    }</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
