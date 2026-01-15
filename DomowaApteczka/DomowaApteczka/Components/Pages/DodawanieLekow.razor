@@ -1,0 +1,62 @@
+﻿@page "/dodajleki"
+@rendermode InteractiveServer
+@inject DomowaApteczka.Data.IApteczkaRepository Repo
+@using DomowaApteczka.Models
+
+<PageTitle>Dodaj Lek/PageTitle> </PageTitle>
+@if (czyDodano)
+{
+    <p>Lek dodano pomyślnie</p>
+}
+<h1>Dodaj nowy lek</h1>
+<p>Dodaj lek do swojej domowej apteczki.</p>
+
+<div>
+    <label>Nazwa leku:</label><br />
+    <input @bind="nazwa" />
+</div>
+
+<div>
+    <label>Data ważności:</label><br />
+    <input type="date" @bind="dataWaznosci" />
+</div>
+
+<div>
+    <label>Rodzaj leku:</label><br />
+    <select @bind="rodzaj">
+        <option value="BezRecepty">Bez recepty</option>
+        <option value="NaRecepte">Na receptę</option>
+    </select>
+</div>
+
+<br />
+
+<button class="btn btn-primary" @onclick="DodajLek">Dodaj lek</button>
+
+@code {
+    private string nazwa = string.Empty;
+    private DateTime dataWaznosci = DateTime.Today;
+    private string rodzaj = "BezRecepty";
+    private bool czyDodano = false;
+
+    private void DodajLek()
+    {
+        Lek nowyLek;
+
+        if (rodzaj == "NaRecepte")
+        {
+            nowyLek = new LekNaRecepte(nazwa, dataWaznosci);
+        }
+        else
+        {
+            nowyLek = new LekBezRecepty(nazwa, dataWaznosci);
+        }
+
+        Repo.Dodaj(nowyLek);
+        czyDodano = true;
+
+        nazwa = string.Empty;
+        dataWaznosci = DateTime.Today;
+    }
+
+}
