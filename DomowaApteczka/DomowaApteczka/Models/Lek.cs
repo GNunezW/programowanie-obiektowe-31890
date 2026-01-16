@@ -17,6 +17,7 @@ public abstract class Lek
     }
 
     public abstract string Typ();
+    public int Id { get; internal set; }
 
     public virtual string Info()
     {
