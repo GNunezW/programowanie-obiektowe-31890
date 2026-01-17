@@ -29,11 +29,11 @@ public class ApteczkaRepositoryDb : IApteczkaRepository
             DateTime data = reader.GetDateTime(2);
             string typ = reader.GetString(3);
 
-            Lek lek = typ == "NaRecepte"
+            Lek lek = typ == "Na recepte"
                 ? new LekNaRecepte(nazwa, data)
                 : new LekBezRecepty(nazwa, data);
 
-            lek.Id = id; // ustawiamy Id z bazy
+            lek.Id = id;
             leki.Add(lek);
         }
 
