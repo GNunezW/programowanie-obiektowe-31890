@@ -1,6 +1,5 @@
 using DomowaApteczka.Components;
 using DomowaApteczka.Data;
-using DomowaApteczka.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
